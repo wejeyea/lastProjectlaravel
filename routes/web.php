@@ -1,0 +1,29 @@
+<?php
+
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/',[ProductController::class, 'ProductPage']);
+// Route::post('/',[LoginController::class, 'login']);
+
+Route::get('/login',[LoginController::class, 'loginPage']);
+Route::post('/login',[LoginController::class, 'login']);
+Route::get('/register',[RegisterController::class, 'RegisterPage']);
+Route::post('/register',[RegisterController::class, 'insert']);
+
+Route::get('/home', [ProductController::class, 'ProductPage']);
+
+Route::get('/logout', [LoginController::class, 'logout']);
